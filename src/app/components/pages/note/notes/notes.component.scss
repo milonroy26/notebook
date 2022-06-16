@@ -1,0 +1,36 @@
+.noteForm{
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    margin-top: 100px;
+    padding: 30px;
+    border-radius: 10px;
+}
+.form-control{
+    box-shadow: 0 0 0 !important;
+    border-radius: 3px !important;
+    border-color: #56a689;
+}
+
+::placeholder { 
+    color: #56a689;
+    opacity: 1;
+  }
+
+.note{
+    background-color: #56a689;
+    padding: 7px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+}  
+
+#delate-icon{
+   width: 18px;
+   margin-right: 3px;
+}
+
+.note-title {
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
