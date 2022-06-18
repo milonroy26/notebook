@@ -10,6 +10,10 @@ import { NotesComponent } from './components/pages/note/notes/notes.component';
 import { CreatenoteComponent } from './components/pages/note/createnote/createnote.component';
 import { ViewnoteComponent } from './components/pages/note/viewnote/viewnote.component';
 import { ErrorComponent } from './components/pages/error/error.component';
+import { AuthService } from 'src/app/services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -20,14 +24,18 @@ import { ErrorComponent } from './components/pages/error/error.component';
     NotesComponent,
     CreatenoteComponent,
     ViewnoteComponent,
-    ErrorComponent,
-  
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

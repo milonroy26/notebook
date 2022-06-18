@@ -7,12 +7,14 @@
             <h5 class="fw-bold mb-4">Login Up Account!</h5>
             <div>
                 <div class="mb-3">
-                    <input class="form-control" placeholder="email" type="email" name="email" autocomplete="off">
+                    <input [(ngModel)]="inEmail" class="form-control" placeholder="email" type="email" name="email"
+                        autocomplete="off">
                 </div>
                 <div class="mb-3">
-                    <input placeholder="password" type="password" class="form-control" id="exampleInputPassword1">
+                    <input [(ngModel)]="inPassword" placeholder="password" type="password" class="form-control"
+                        id="exampleInputPassword1">
                 </div>
-                <button type="submit" class="btn">Login</button>
+                <button (click)="login()" class="btn">Login</button>
                 <a class="register-link ms-3" routerLink="/signup">Sign up</a>
             </div>
         </div>
