@@ -11,6 +11,11 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SignupComponent implements OnInit {
   public appName = appName;
 
+  // Input data variables
+  public inName: string = '';
+  public inEmail: string = '';
+  public inPassword: string = '';
+
   constructor(
     private Title: Title,
     private Auth: AuthService,
@@ -22,6 +27,23 @@ export class SignupComponent implements OnInit {
     if(this.Auth.loggedIn() == true){
       this.Router.navigate(['/notes']);
     }
+  }
+
+  signUp(){
+    const userInfo = {
+      name: this.inName,
+      email: this.inEmail,
+      password: this.inPassword
+    }
+
+    this.Auth.register(userInfo)
+    .subscribe(data => {
+      localStorage.setItem('token', data.token);
+      this.Router.navigate(['/notes']);
+    }, error => {
+      alert('Signup Error');
+      console.log(error.error);
+    })
   }
 
 }

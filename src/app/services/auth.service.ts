@@ -25,6 +25,15 @@ export class AuthService {
     );
   }
 
+  // New user account create
+  register(user: {name: string, email: string, password: string}): Observable<any> {
+    return this.http.post<any>(`${this.server}/auth/create`, user)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandeller)
+    );
+  }
+
   // Is the user logged in? true or false
   loggedIn(){
     return !!localStorage.getItem('token');

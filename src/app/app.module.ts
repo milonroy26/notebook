@@ -11,9 +11,11 @@ import { CreatenoteComponent } from './components/pages/note/createnote/createno
 import { ViewnoteComponent } from './components/pages/note/viewnote/viewnote.component';
 import { ErrorComponent } from './components/pages/error/error.component';
 import { AuthService } from 'src/app/services/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './guards/auth.guard';
+import { NoteService } from './services/note.service';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { AuthGuard } from './guards/auth.guard';
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    NoteService,
+    [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}]
   ],
   bootstrap: [AppComponent]
 })

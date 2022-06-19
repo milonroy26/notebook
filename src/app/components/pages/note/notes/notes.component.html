@@ -3,46 +3,33 @@
         <div class="col-xl-3"></div>
         <div class="col-xl-6 noteForm">
             <div class="mb-3">
-                <input placeholder="Note Title" class="form-control" type="text" name="">
+                <input [(ngModel)]=inNoteTitle placeholder="Note Title" class="form-control" type="text" name="">
             </div>
             <div class="mb-3">
-                <textarea placeholder="Note Description" class="form-control" id="exampleFormControlTextarea1"
-                    rows="3"></textarea>
+                <textarea [(ngModel)]="inNoteDescription" placeholder="Note Description" class="form-control"
+                    id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-            <button class="btn btn-primary">Save Note</button>
+            <button (click)="createNote()" class="btn btn-primary">Save Note</button>
             <button class="btn btn-danger" (click)="logOut()">LOGOUT</button>
         </div>
         <div class="col-xl-3"></div>
     </div>
 
     <div class="my-5"></div>
-    <div class="row my-3">
+    <div *ngFor="let note of notes" class="row my-3">
         <div class="col-xl-3"></div>
         <div class="col-xl-6">
             <div class="note d-flex justify-content-between align-items-center">
                 <div class="note-title">
-                    <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing.</a>
+                    <a routerLink="/note/view/{{note._id}}"> {{ note.title }} </a>
                 </div>
                 <div class="delate">
-                    <img id="delate-icon" src="assets/delete.svg" alt="delete">
+                    <img (click)="delete(note._id)" id="delate-icon" src="assets/delete.svg" alt="delete">
                 </div>
             </div>
         </div>
         <div class="col-xl-3"></div>
     </div>
 
-    <div class="row my-3">
-        <div class="col-xl-3"></div>
-        <div class="col-xl-6">
-            <div class="note d-flex justify-content-between align-items-center">
-                <div class="note-title">
-                    <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing.</a>
-                </div>
-                <div class="delate">
-                    <img id="delate-icon" src="assets/delete.svg" alt="delete">
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3"></div>
-    </div>
+
 </div>

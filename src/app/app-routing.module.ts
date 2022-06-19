@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'notes', component: NotesComponent, canActivate: [AuthGuard] },
-  { path: 'note/view', component: ViewnoteComponent, canActivate: [AuthGuard] },
+  { path: 'note/view/:id', component: ViewnoteComponent, canActivate: [AuthGuard] },
   { path: '**', component: ErrorComponent }
 ];
 

@@ -1,13 +1,10 @@
-<div class="container py-5">
+<div *ngIf="note" class="container py-5">
     <div class="row">
         <div class="col-xl-12">
             <div class="view-style">
-                <h2 class="fw-bold">What Is Javascript</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit unde voluptatem cum, enim ex non,
-                    recusandae doloremque possimus libero rem eum! Eos quis eveniet suscipit totam possimus distinctio
-                    deserunt explicabo doloribus quam quibusdam nihil aut sequi quod commodi, rem et similique dolor
-                    impedit, maiores a. Maiores earum quod impedit veniam quis molestias dolorum? Reprehenderit quos
-                    autem distinctio neque repellat possimus?</p>
+                <h2 class="fw-bold"> {{ note.title }} </h2>
+                <p style="white-space: pre;"> {{ note.description }} </p>
+                <p class="text-muted">Created: {{ note.date }} </p>
             </div>
         </div>
     </div>
